@@ -1,0 +1,8 @@
+{
+  "name": "AI AMAR Assistant",
+  "description": "An exclusive, high-end AI assistant developed by Amar Moustafa Noufal with image analysis and chat capabilities.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
