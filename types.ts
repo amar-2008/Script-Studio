@@ -1,3 +1,4 @@
+
 export interface Attachment {
   name: string;
   type: string;
@@ -42,6 +43,6 @@ export enum ViewState {
 
 export enum AppMode {
   CHAT = 'CHAT',
-  IMAGE_GEN = 'IMAGE_GEN', 
+  CODING = 'CODING',
   PROMPT_ENG = 'PROMPT_ENG',
 }
