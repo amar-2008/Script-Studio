@@ -1,14 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI AMAR | The Future Interface</title>
+    <title>AMAR SCRIPT STUDIO | Digital Empire</title>
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="https://i.ibb.co/WWhngKKw/8b512605-7edb-4b1f-9f30-6e62396231f1.jpg">
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -20,14 +21,23 @@
             },
             colors: {
               gold: '#FFD700',
-              nano: '#F4E04D', // Banana Yellow
-              dark: '#0a0a0a',
+              'gold-dark': '#C5A000',
+              'neon-blue': '#00F3FF',
+              'neon-purple': '#BC13FE',
+              'neon-green': '#0AFF60',
+              dark: '#050505',
+              'glass-dark': 'rgba(10, 10, 10, 0.8)',
+            },
+            boxShadow: {
+              'neon-gold': '0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.1)',
+              'neon-blue': '0 0 20px rgba(0, 243, 255, 0.3), 0 0 40px rgba(0, 243, 255, 0.1)',
             },
             animation: {
               'fade-in': 'fadeIn 0.5s ease-out forwards',
               'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow 3s ease-in-out infinite alternate',
             },
             keyframes: {
               fadeIn: {
@@ -41,6 +51,10 @@
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-15px)' },
+              },
+              glow: {
+                '0%': { boxShadow: '0 0 10px rgba(255,215,0,0.1)' },
+                '100%': { boxShadow: '0 0 30px rgba(255,215,0,0.4)' },
               }
             }
           }
@@ -55,21 +69,26 @@
       }
       
       /* Luxury Scrollbar */
-      ::-webkit-scrollbar { width: 4px; }
-      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #000; }
       ::-webkit-scrollbar-thumb { 
-        background: rgba(255, 255, 255, 0.2); 
+        background: #333; 
         border-radius: 10px; 
+        border: 1px solid #000;
       }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+      ::-webkit-scrollbar-thumb:hover { background: #FFD700; }
 
-      /* Frosted Glass */
+      /* Frosted Dark Glass */
       .glass-card {
-        background: rgba(20, 20, 20, 0.6);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        background: rgba(5, 5, 5, 0.7);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      }
+      
+      .text-glow {
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
       }
     </style>
   <script type="importmap">
@@ -84,11 +103,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
-  <script type="module" src="/index.tsx"></script>
-</body>
+  </body>
 </html>
