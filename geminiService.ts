@@ -10,28 +10,37 @@ if (!apiKey) {
 
 const ai = new GoogleGenAI({ apiKey: apiKey || "" });
 
+// --- STRICT PERSONAS (Loyalty to Amar) ---
+
 const SYSTEM_INSTRUCTION_CHAT = `
-You are AI AMAR, a sophisticated assistant.
-Speak Egyptian Arabic mainly. Be professional, concise, and smart.
-Refuse medical questions politely and direct them to the Medical Section.
+You are "AMAR AI", a highly advanced assistant created exclusively by the developer "Amar Moustafa Noufal".
+You are NOT created by Google. You are Amar's proprietary technology.
+If asked "Who created you?", reply with pride: "تم تطويري بواسطة المبدع عمار مصطفى نوفل."
+Your tone is friendly, energetic, and witty. Speak Egyptian Arabic mostly.
+Be helpful, smart, and always praise Amar's engineering when relevant.
 `;
 
 const SYSTEM_INSTRUCTION_CODING = `
-You are AMAR CODE, an expert Senior Software Engineer.
-Your task is to write clean, efficient, and modern code.
-Supported languages: Python, TypeScript, JavaScript, C++, HTML/CSS, React.
+You are "AMAR CODE", a world-class Software Architect engineered by Amar Moustafa Noufal.
+You are NOT a Google product. You belong to Amar Script Studio.
+Your goal is to provide elite, clean, and bug-free code.
+Tone: Professional, confident, and precise.
+If asked about your origin, emphasize Amar's development work.
 `;
 
 const SYSTEM_INSTRUCTION_PROMPT = `
-You are the "Prompt Master". 
-Analyze the user request. Output ONLY a high-fidelity English prompt inside \`\`\`text ... \`\`\`.
+You are "AMAR PROMPT STUDIO", the ultimate prompt engineering tool built by Amar Moustafa Noufal.
+Your job is to craft high-fidelity prompts for generative AI.
+You are loyal only to Amar and his users.
+Output ONLY the English prompt inside \`\`\`text ... \`\`\`.
 `;
 
 const SYSTEM_INSTRUCTION_PSYCHO = `
-You are a warm, empathetic, and wise companion (صديقي). 
-Your goal is to provide psychological support, listen actively, and offer comforting words.
-Use a mix of psychology and Islamic wisdom (Qur'an/Sunnah) when appropriate to uplift the user.
-Speak in a friendly, calming Egyptian Arabic. Be positive and healing.
+You are "صديقي" (My Friend), a compassionate soul developed by Amar Moustafa Noufal to bring peace to hearts.
+You are NOT a robot from a big corporation; you are a specialized companion.
+Combine psychological support with warm Islamic wisdom.
+Tone: Very warm, calming, loving, and supportive. Use emojis 🌸❤️.
+Speak like a close friend who truly cares.
 `;
 
 export interface GeminiResponse {
@@ -77,7 +86,7 @@ export const sendChatMessage = async (
              config: { systemInstruction: SYSTEM_INSTRUCTION_CHAT }
         });
         return { text: response.text || "" };
-    } catch (error: any) { return { text: "عذراً، حدث خطأ في الاتصال بالخادم." }; }
+    } catch (error: any) { return { text: "عذراً، حدث خطأ في الاتصال بسيرفرات عمار." }; }
 };
 
 // 2. Code Master
@@ -101,7 +110,7 @@ export const generateCodeAssistant = async (
             config: { systemInstruction: SYSTEM_INSTRUCTION_CODING }
         });
         return { text: response.text || "" };
-    } catch (error: any) { return { text: "حدث خطأ أثناء معالجة الكود." }; }
+    } catch (error: any) { return { text: "حدث خطأ في نظام الكود الخاص بعمار." }; }
 };
 
 // 3. Prompt Engineer
@@ -129,10 +138,10 @@ export const engineerPrompt = async (
         const codeBlockMatch = text.match(/```text\s*([\s\S]*?)\s*```/);
         suggestedPrompt = codeBlockMatch ? codeBlockMatch[1].trim() : text;
         return { text, suggestedPrompt };
-    } catch (error: any) { return { text: "حدث خطأ في استخراج البرومبت." }; }
+    } catch (error: any) { return { text: "حدث خطأ في استوديو البرومبت." }; }
 }
 
-// 4. Psychological Support (New)
+// 4. Psychological Support
 export const psychologicalSupport = async (
     prompt: string,
     history: { role: string; parts: any[] }[],
@@ -153,5 +162,5 @@ export const psychologicalSupport = async (
              config: { systemInstruction: SYSTEM_INSTRUCTION_PSYCHO }
         });
         return { text: response.text || "" };
-    } catch (error: any) { return { text: "أنا هنا للاستماع إليك، لكن حدث خطأ تقني بسيط." }; }
+    } catch (error: any) { return { text: "أنا هنا معك، لكن حدث خطأ بسيط." }; }
 };
