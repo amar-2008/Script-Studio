@@ -45,4 +45,5 @@ export enum AppMode {
   CHAT = 'CHAT',
   CODING = 'CODING',
   PROMPT_ENG = 'PROMPT_ENG',
+  PSYCHO = 'PSYCHO', // New Mode
 }
